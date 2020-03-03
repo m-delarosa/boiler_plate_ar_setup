@@ -3,6 +3,7 @@ class CreateTrailsTable < ActiveRecord::Migration[6.0]
     create_table :trails do |t|
       t.string :name
       t.integer :length
+      t.references :user, foreign_key: true
     end
   end
 end

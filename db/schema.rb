@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 2020_03_03_024820) do
   create_table "trails", force: :cascade do |t|
     t.string "name"
     t.integer "length"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_trails_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -22,4 +24,5 @@ ActiveRecord::Schema.define(version: 2020_03_03_024820) do
     t.integer "age"
   end
 
+  add_foreign_key "trails", "users"
 end
